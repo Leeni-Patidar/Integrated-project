@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
 import "../styles.css";
-
-const API_URL = "http://localhost:8000";
+import { API_URL } from "../config/api";
 
 
 export default function Dashboard() {

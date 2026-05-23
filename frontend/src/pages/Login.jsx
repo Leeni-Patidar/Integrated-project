@@ -3,8 +3,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react';
-
-const API_URL = 'http://localhost:8000';
+import { API_URL } from '../config/api';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -140,7 +139,7 @@ export default function Login() {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5" autoComplete="on">
               {/* Error message */}
               {error && (
                 <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm">
@@ -154,6 +153,8 @@ export default function Login() {
                 <div className="relative">
                   <input
                     type="text"
+                    name="username"
+                    autoComplete="username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder="Enter your username"
@@ -173,6 +174,8 @@ export default function Login() {
                   <div className="relative">
                     <input
                       type="email"
+                      name="email"
+                      autoComplete="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email"
@@ -192,6 +195,8 @@ export default function Login() {
                 <div className="relative">
                   <input
                     type={showPassword ? 'text' : 'password'}
+                    name="password"
+                    autoComplete={isLogin ? 'current-password' : 'new-password'}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter your password"
